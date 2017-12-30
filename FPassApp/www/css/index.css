@@ -85,7 +85,9 @@ h1 {
 }
 
 #logo {
-	
+	width: 90%;
+	display: block;
+	margin: 0 auto;
 }
 
 h3 {
