@@ -39,22 +39,23 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Hello World</title>
+	<script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+	<script src="js/fontawesome-all.min.js"></script>
+	<title>F-Pass</title>
 </head>
 
-<body>
-    <div class="app">
-        <h1>F-Pass</h1>
-        <div id="deviceready" class="blink">
-            <p class="event listening">Mi sto connettendo al dispositivo</p>
-            <p class="event received">Il dispositivo è collegato</p>
-        </div>
-    </div>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-    </script>
+<body id="body" onload="app.initialize();">
+	<h1>F-Pass</h1>
+	<h3>Tutte le tue tessere sul tuo telefono</h3>
+    <form id="form_scelta" action="javascript:void(0);">
+		<button type="submit" name="registrati" id="registrati" value="Registrati">
+			<i class="fas fa-user-plus"></i> Registrati
+		</button><!--
+	 --><button type="submit" name="accedi" id="accedi" value="Accedi">
+	 		<i class="fas fa-sign-in-alt"></i> Accedi
+		</button>
+    </form>
 </body>
 
 </html>
