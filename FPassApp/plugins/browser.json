@@ -6,6 +6,7 @@
     "config_munge": {
         "files": {}
     },
+<<<<<<< HEAD
     "installed_plugins": {
         "cordova-plugin-battery-status": {
             "PACKAGE_NAME": "com.fpass.app"
@@ -37,6 +38,36 @@
         "cordova-plugin-vibration": {
             "PACKAGE_NAME": "com.fpass.app"
         }
+=======
+    "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "com.fpass.app"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.fpass.app"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.fpass.app"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.fpass.app"
+    },
+    "cordova-plugin-globalization": {
+      "PACKAGE_NAME": "com.fpass.app"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.fpass.app"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.fpass.app"
+    },
+    "cordova-plugin-vibration": {
+      "PACKAGE_NAME": "com.fpass.app"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.fpass.app"
+>>>>>>> 2540a3da3967bb551d21232f19b27e7e519ab7a5
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
