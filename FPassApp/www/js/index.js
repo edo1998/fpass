@@ -16,6 +16,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         document.getElementById("body").style.visibility = "visible"
+		window.location = "qrscan.html"
     },
     // Update DOM on a Received Event
 };
