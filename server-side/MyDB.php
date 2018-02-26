@@ -32,6 +32,26 @@ class DB {
         return self::$connection;
     }
 
+    public function fetchAssocStatement($stmt)
+    {
+        if($stmt->num_rows>0)
+        {
+            $result = array();
+            $md = $stmt->result_metadata();
+            $params = array();
+            while($field = $md->fetch_field()) {
+                $params[] = &$result[$field->name];
+            }
+            call_user_func_array(array($stmt, 'bind_result'), $params);
+            if($stmt->fetch())
+                return $result;
+        } else {
+            return $stmt->errno;
+        }
+    
+        return null;
+    }
+
     public function query() {
 
         // Query the database
@@ -41,19 +61,23 @@ class DB {
         call_user_func_array(array($query, 'bind_param'), $this->bind_parameter);
 
         $query->execute();
+        $query->store_result();
         
-        $result = $query->get_result();
+        //$result = $query->get_result();
         
         // * Aggiorna la proprietà errore
         $this->errore = $query->errno;
             
         // * Se il comando è select ritorna l'array con i valori
         if (substr($this->comando, 0, 6) == "SELECT") {
-                    
-            if($result === false) {
-                return $query->errno;
-            }
-            while ($row = $result -> fetch_assoc()) {
+            
+            //$result = $query->get_result();
+            
+            //if($result === false) {
+            //    return $query->errno;
+            //}
+            
+            while ($row = self::fetchAssocStatement($query)) {
                 $rows[] = $row;
                 return $rows;
             }  
