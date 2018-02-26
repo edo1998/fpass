@@ -40,10 +40,11 @@
     "cordova-plugin-network-information": {
       "PACKAGE_NAME": "com.fpass.app"
     },
-    "cordova-plugin-qrscanner": {
+    "cordova-plugin-vibration": {
       "PACKAGE_NAME": "com.fpass.app"
     },
-    "cordova-plugin-vibration": {
+    "phonegap-plugin-barcodescanner": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
       "PACKAGE_NAME": "com.fpass.app"
     }
   },
@@ -52,9 +53,6 @@
       "PACKAGE_NAME": "com.fpass.app"
     },
     "cordova-plugin-file": {
-      "PACKAGE_NAME": "com.fpass.app"
-    },
-    "cordova-plugin-swift-support": {
       "PACKAGE_NAME": "com.fpass.app"
     }
   }
