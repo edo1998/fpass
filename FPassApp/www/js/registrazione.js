@@ -22,23 +22,28 @@ var app = {
 
 function ValidateEmail(mail)
 {
- if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.emailAddr.value))
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
   {
-    return (true)
+    return true;
   }
-    return (false)
+    return false;
 }
 
 
 function validate() {
 	var nome = document.getElementById('nome').value;
 	var cognome = document.getElementById('cognome').value;
-	var cf = document.getElementById('cf').value;
+	var mail = document.getElementById('mail').value;
 	var password = document.getElementById('password').value;
 	var conf_password = document.getElementById('conf_password').value;
-	var check_mail = ValidateEmail(cf);
+	var check_mail = ValidateEmail(mail);
 	if(check_mail && (password == conf_password && password != "") && nome != "" && cognome != ""){
-		//DO COSE
+		var oggetto ={ nome: nome, cognome: cognome,  mail: mail, password: password};
+		$.post(
+			"https://www.rinonline.com/fpass/nuovo_anag.php",
+			oggetto
+		);
+		return false;
 	}else{
 		if (!check_mail){
 			document.getElementById("mail").className += "error";

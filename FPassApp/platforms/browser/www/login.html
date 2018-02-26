@@ -18,23 +18,18 @@
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
-    <link rel="stylesheet" type="text/css" href="css/registrazione.css" />
-	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
 	<script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/registrazione.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
 	<script src="js/fontawesome-all.min.js"></script>
-    <title>F-Pass Registrazione</title>
+    <title>F-Pass Login</title>
 </head>
 <body id="body" onload="app.initialize();">
 	<img id="logo" src="img/logo.png">
-    <form id="form_registrazione" action="" onSubmit="return validate()">
-		<input type="text" name="nome" id="nome" placeholder="Nome">
-		<input type="text" name="cognome" id="cognome" placeholder="Cognome">
+    <form id="form_login" method="post" action="https://www.rinonline.com/fpass/legge_anag.php">
 		<input type="text" name="mail" id="mail" placeholder="Indirizzo e-mail">
 		<input type="password" name="password" id="password" placeholder="Password">
-		<input type="password" name="conf_password" id="conf_password" placeholder="Conferma password">
-		<button type="submit"><i class="fas fa-sign-in-alt"></i> Registrati</button>
+		<button type="submit"><i class="fas fa-sign-in-alt"></i>Entra</button>
 	</form>
 </body>
-
 </html>
