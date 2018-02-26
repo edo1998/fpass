@@ -26,9 +26,10 @@
 </head>
 <body id="body" onload="app.initialize();">
 	<img id="logo" src="img/logo.png">
-    <form id="form_login" onsubmit="return validate();">
-		<input type="text" name="nome" id="nome" placeholder="Nome e cognome">
-		<input type="text" name="cf" id="cf" placeholder="Codice fiscale">
+    <form id="form_login" method="post" action="http://www.rinonline.com/fpass/nuovo_anag.php" onsubmit="return validate();">
+		<input type="text" name="nome" id="nome" placeholder="Nome">
+		<input type="text" name="cognome" id="cognome" placeholder="Cognome">
+		<input type="text" name="mail" id="mail" placeholder="Indirizzo e-mail">
 		<input type="password" name="password" id="password" placeholder="Password">
 		<input type="password" name="conf_password" id="conf_password" placeholder="Conferma password">
 		<button type="submit"><i class="fas fa-sign-in-alt"></i> Registrati</button>

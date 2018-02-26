@@ -20,21 +20,28 @@ var app = {
     // Update DOM on a Received Event
 };
 
-function checkCF(cf){
-	return true;
+function ValidateEmail(mail)
+{
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.emailAddr.value))
+  {
+    return (true)
+  }
+    return (false)
 }
+
 
 function validate() {
 	var nome = document.getElementById('nome').value;
+	var cognome = document.getElementById('cognome').value;
 	var cf = document.getElementById('cf').value;
 	var password = document.getElementById('password').value;
 	var conf_password = document.getElementById('conf_password').value;
-	var check_cf = checkCF(cf);
-	if(check_cf && (password == conf_password && password != "") && nome != ""){
+	var check_mail = ValidateEmail(cf);
+	if(check_mail && (password == conf_password && password != "") && nome != "" && cognome != ""){
 		//DO COSE
 	}else{
-		if (!check_cf){
-			document.getElementById("cf").className += "error";
+		if (!check_mail){
+			document.getElementById("mail").className += "error";
 		}
 		if (password != conf_password || password == ""){
 			document.getElementById("password").className += "error";
@@ -42,6 +49,9 @@ function validate() {
 		}
 		if (nome == ""){
 			document.getElementById("nome").className += "error";
+		}
+		if (cognome == ""){
+			document.getElementById("cognome").className += "error";
 		}
 		return false;
 	}
