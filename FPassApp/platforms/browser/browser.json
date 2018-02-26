@@ -4,8 +4,42 @@
     "uninstalled": []
   },
   "config_munge": {
-    "files": {}
+    "files": {
+      "config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"QRScanner\"><param name=\"browser-package\" value=\"QRScanner\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      }
+    }
   },
-  "installed_plugins": {},
-  "dependent_plugins": {}
+  "installed_plugins": {
+    "cordova-plugin-qrscanner": {
+      "PACKAGE_NAME": "com.fpass.app"
+    }
+  },
+  "dependent_plugins": {},
+  "modules": [
+    {
+      "file": "plugins/cordova-plugin-qrscanner/www/www.min.js",
+      "id": "cordova-plugin-qrscanner.QRScanner",
+      "pluginId": "cordova-plugin-qrscanner",
+      "clobbers": [
+        "QRScanner"
+      ]
+    },
+    {
+      "file": "plugins/cordova-plugin-qrscanner/src/browser/plugin.min.js",
+      "id": "cordova-plugin-qrscanner.QRScannerProxy",
+      "pluginId": "cordova-plugin-qrscanner",
+      "runs": true
+    }
+  ],
+  "plugin_metadata": {
+    "cordova-plugin-qrscanner": "2.5.0"
+  }
 }
