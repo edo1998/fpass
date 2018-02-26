@@ -8,17 +8,17 @@ class DB {
     public $comando;
     public $bind_parameter = array();
     public $errore;
-    
+
     /**
      * Connect to the database
-     * 
+     *
      * @return bool false on failure / mysqli MySQLi object instance on success
      */
-    public function __construct() {    
+    public function __construct() {
         // Try and connect to the database
         if(!isset(self::$connection)) {
             // Load configuration as an array. Use the actual location of your configuration file
-            $config = parse_ini_file('./config.ini'); 
+            $config = parse_ini_file('./config.ini');
             self::$connection = new mysqli('localhost',$config['username'],$config['password'],$config['dbname']);
         }
 
@@ -48,7 +48,7 @@ class DB {
         } else {
             return $stmt->errno;
         }
-    
+
         return null;
     }
 
@@ -56,60 +56,60 @@ class DB {
 
         // Query the database
         $result = $this->popola_bind();
-        
+
         $query = self::$connection -> prepare($this->comando);
         call_user_func_array(array($query, 'bind_param'), $this->bind_parameter);
 
         $query->execute();
         $query->store_result();
-        
+
         //$result = $query->get_result();
-        
+
         // * Aggiorna la proprietà errore
         $this->errore = $query->errno;
-            
+
         // * Se il comando è select ritorna l'array con i valori
         if (substr($this->comando, 0, 6) == "SELECT") {
-            
+
             //$result = $query->get_result();
-            
+
             //if($result === false) {
             //    return $query->errno;
             //}
-            
+
             while ($row = self::fetchAssocStatement($query)) {
                 $rows[] = $row;
                 return $rows;
-            }  
+            }
         }
         return $query->errno;
     }
-    
+
     public function popola_bind() {
-    
+
         // *** popola le proprietà $bind_parameter
 
         for ($i = 0, $n = count($this->item_type) ; $i < $n ; $i++)
             {
             $this->bind_parameter[0] .= $this->item_type[$i];
             }
-        
+
         for ($i = 0, $n = count($this->item_value) ; $i < $n ; $i++)
             {
-            $this->bind_parameter[$i+1] = $this->item_value[$i];            
-            }   
-        
+            $this->bind_parameter[$i+1] = &$this->item_value[$i];            
+            }
+
         return true;
     }
-    
+
     public function clear_query() {
-        
+
         unset($this->item_type);
         unset($this->item_value);
         unset($this->bind_parameter);
-        
+
         return true;
-    }  
+    }
 
     public function error() {
         return $connection -> error;
@@ -127,7 +127,7 @@ class DB {
 }
 
 /* Esempio di Utilizzo della classe DB
- * 
+ *
 $mydb = new DB();
 
 
@@ -149,7 +149,7 @@ if ($rows == 0) {
     echo "Lettura fallita";
     } else {
         echo $rows[0]['Cognome'];
-        echo $rows[0]['Nome'];  
+        echo $rows[0]['Nome'];
     }
 
 **************   INSERT   *****************
