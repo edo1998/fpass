@@ -40,6 +40,7 @@ var app = {
 		var tipo = parameters.tipo[0];
 		var codice = parameters.codice[0];
 		if (tipo != "QR_CODE"){
+			tipo = tipo.toLowerCase().replace("_","");
 			$("#code").barcode(codice,tipo);
 		}else{
 			$("#code").qrcode(codice);
