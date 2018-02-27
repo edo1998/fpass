@@ -29,8 +29,17 @@ function validate() {
 		oggetto,
 		function (data){
 			$("#wrapper").css("visibility","hidden");
-			console.log(data);
-			//window.location = "home.html"
+			var response = JSON.parse(data);
+			if (response.errore == 0){
+				localStorage.nome = response.nome;
+				localStorage.cognome = response.cognome;
+				localStorage.mail = mail;
+				localStorage.passcode = response.passcode;
+				localStorage.keep = 1;
+				window.location = "home.html"
+			}else{
+				alert('Si è verificato un errore');
+			}
 		}
 	);
 	return false;

@@ -15,7 +15,8 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-		$("#target").barcode("1234567890128", "ean13");   
+		$("#target").qrcode(localStorage.passcode);
+		$("#bartarget").barcode(localStorage.passcode,"code39");   
     },
     // Update DOM on a Received Event
 };
