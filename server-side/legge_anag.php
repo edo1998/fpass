@@ -1,4 +1,3 @@
-<html>
 
 <?php
 
@@ -14,22 +13,24 @@ $mydb->item_type[1] = "s";
 
 
 $mydb->item_value[0] = $_POST["mail"];
-$mydb->item_value[1] = $_POST["passcode"];
+$mydb->item_value[1] = $_POST["password"];
 
-$mydb->comando = "SELECT Cognome,Nome,PassCode FROM anag WHERE Mail = ? or PassCode = ?";
+$mydb->comando = "SELECT Cognome,Nome,PassCode FROM anag WHERE Mail = ? and Password = ?";
 
 $rows = $mydb -> query();
 
-
 if ($rows == 0) {
-    echo "Lettura fallita";
+        $dati['cognome'] = "";
+        $dati['nome'] = "";
+        $dati['passcode'] = "";
+        $dati['errore'] = 1;
+        echo json_encode($dati);
     } else {
         $dati['cognome'] = $rows[0]['Cognome'];
         $dati['nome'] = $rows[0]['Nome'];
         $dati['passcode'] = $rows[0]['PassCode'];
+        $dati['errore'] = 0;
         echo json_encode($dati);
     }
     
 ?>
-
-</html>

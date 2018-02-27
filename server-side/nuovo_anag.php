@@ -1,4 +1,3 @@
-<html>
 
 <?php
 
@@ -66,6 +65,11 @@ $result = $mydb -> query();
 
 } while ($result <> 0 and $tentativi < 10000 );
 
+if ($result <> 0) {
+        $dati['errore'] = 1;
+        echo json_encode($dati);
+    } else {
+        $dati['errore'] = 0;
+        echo json_encode($dati);
+    }
 ?>
-
-</html>
