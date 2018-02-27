@@ -18,20 +18,32 @@
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
-    <link rel="stylesheet" type="text/css" href="css/home.css" />
+    <link rel="stylesheet" type="text/css" href="css/nuova_tessera.css" />
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="cordova.js"></script>
 	<script type="text/javascript" src="js/jquery-barcode.min.js"></script>
 	<script type="text/javascript" src="js/jquery-qrcode.min.js"></script>
-	<script type="text/javascript" src="js/home.js"></script>
+	<script type="text/javascript" src="js/nuova_tessera.js"></script>
 	<script src="js/fontawesome-all.min.js"></script>
     <title>F-Pass Home</title>
 </head>
 <body id="body" onload="app.initialize();">
+	<div id="wrapper"><i class="fas fa-spinner fa-spin spinner fa-3x"></i></div>
 	<div id="navbar">
-		<div id="aggiungi">
-			<i class="fas fa-plus fa-2x"></i>
+		<div id="indietro">
+			<i class="fas fa-chevron-left fa-2x"></i>
 		</div>
 	</div>
+    <form id="form_registrazione" action="" onSubmit="return false;">
+		<select>
+			<option value="" selected disabled>Scegli la tessera</option>
+			<option value="1">Brico</option>
+		</select>
+		<input type="hidden" name="tipo" id="tipo">
+		<input type="hidden" name="codice" id="codice">
+		<input type="hidden" name="passcode" id="passcode">
+		<button id="scan">Scannerizza</button>
+		<button type="submit"><i class="fas fa-sign-in-alt"></i> Aggiungi</button>
+	</form>
 </body>
 </html>

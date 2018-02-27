@@ -15,9 +15,27 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-		$("#aggiungi").click(
+		$("#passcode").val(localStorage.passcode);
+		$("#indietro").click(
 			function(){
-				window.location = "nuova_tessera.html";
+				window.location = "home.html";
+			}
+		);
+		$("#scan").click(
+			function(){
+				cordova.plugins.barcodeScanner.scan(
+					function (result) {
+					    if(!result.cancelled){
+							$("#tipo").val(result.format);
+							$("#codice").val(result.text);
+					    }else{
+					    	alert("Hai annullato la scansione");
+					    }
+				  	},
+					function (error) {
+						alert("Scansione fallita: " + error);
+					}
+				);
 			}
 		);
     },

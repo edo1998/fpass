@@ -23,12 +23,34 @@ body {
     height: 9%;
     padding: 3.5%;
     box-sizing: border-box;
-    text-align: right;
+    text-align: left;
     background-color: #e8e8e8;
 }
 
-#aggiungi{
+#indietro{
 	display: inline-block;
 	width: 20%;
 	color: #860000
+}
+
+#wrapper {
+    background-color: #0000006b;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+	visibility: hidden;
+}
+
+.spinner {
+    display: block;
+    color: white;
+    position: absolute;
+    top: 46%;
+    left: 46%;
+}
+
+form{
+	position: relative;
+	top: 20%;
 }

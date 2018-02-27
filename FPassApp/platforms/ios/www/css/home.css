@@ -16,27 +16,19 @@ body {
     width:100%;
 }
 
-#footer {
+#navbar {
     position: fixed;
-    bottom: 0;
+    top: 0;
     width: 100%;
     height: 9%;
-    padding: 3.5% 0;
-	box-sizing: border-box;
-	text-align: center;
-	background-color: #e8e8e8;
+    padding: 3.5%;
+    box-sizing: border-box;
+    text-align: right;
+    background-color: #e8e8e8;
 }
 
-#tessere{
+#aggiungi{
 	display: inline-block;
-	width: 50%;
-}
-
-#fpass{
-	display: inline-block;
-	width: 50%;
-}
-
-.active{
-	color: #860000;
+	width: 20%;
+	color: #860000
 }
