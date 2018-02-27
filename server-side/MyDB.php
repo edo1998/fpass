@@ -63,26 +63,22 @@ class DB {
         $query->execute();
         $query->store_result();
 
-        //$result = $query->get_result();
-
         // * Aggiorna la proprietà errore
         $this->errore = $query->errno;
 
         // * Se il comando è select ritorna l'array con i valori
         if (substr($this->comando, 0, 6) == "SELECT") {
 
-            //$result = $query->get_result();
-
-            //if($result === false) {
-            //    return $query->errno;
-            //}
-
             while ($row = self::fetchAssocStatement($query)) {
                 $rows[] = $row;
-                return $rows;
             }
         }
-        return $query->errno;
+        if ($query->errno == 0 ) {
+            return $rows;
+        } else {
+            return $query->errno;    
+        }
+
     }
 
     public function popola_bind() {
