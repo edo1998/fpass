@@ -43,9 +43,12 @@ function validate() {
 		$.post(
 			"https://www.rinonline.com/fpass/nuovo_anag.php",
 			oggetto,
-			function (){
+			function (data){
 				$("#wrapper").css("visibility","hidden");
-				window.location = "home.html"
+				var response = JSON.parse(data);
+				if (response["errore"] == 0){
+					window.location = "home.html"
+				}
 			}
 		);
 		return false;
