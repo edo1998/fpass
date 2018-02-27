@@ -24,9 +24,9 @@ class DB {
 
         // If connection was not successful, handle the error
         if(self::$connection === false) {
-            echo "Connessione Fallita";
+            //echo "Connessione Fallita";
             // Handle error - notify administrator, log to a file, show an error screen, etc.
-            echo "Connessione Fallita";
+            //echo "Connessione Fallita";
             return false;
         }
         return self::$connection;
