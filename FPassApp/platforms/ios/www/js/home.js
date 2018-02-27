@@ -17,7 +17,7 @@ var app = {
     onDeviceReady: function() {
 		var tessere = JSON.parse(localStorage.tessere);
 		for (i = 0; i < tessere.length; i++) {
-    		$("#tessere").append('<div class="list_element"><div class="icon"><i class="fas fa-credit-card fa-2x"></i></div><!----><div class="locale"><a href="tessera.html?codice='+tessere[i].codice+'">'+tessere[i].id_locale+'</a></div></div>');
+    		$("#tessere").append('<div class="list_element"><div class="icon"><i class="fas fa-credit-card fa-2x"></i></div><!----><div class="locale"><a href="tessera.html?codice='+tessere[i].codice+'&tipo='+tessere[i].tipo+'">'+tessere[i].locale+'</a></div></div>');
 		}
 		$("#aggiungi").click(
 			function(){

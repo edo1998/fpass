@@ -19,12 +19,13 @@ var app = {
 		$("#aggiungi").click(
 			function(){
 				var id_locale = document.getElementById('id_locale').value;
+				var locale = $("#id_locale option[value='"+id_locale+"']").text();
 				var codice = document.getElementById('codice').value;
 				var tipo = document.getElementById('tipo').value;
 				var passcode = document.getElementById('passcode').value;
 				if(id_locale != "" && codice != "" && passcode != "" && tipo != ""){
 					$("#wrapper").css("visibility","visible");
-					var oggetto ={id_locale: id_locale, codice: codice,  tipo: tipo, passcode: passcode};
+					var oggetto ={id_locale: id_locale,locale: locale, codice: codice,  tipo: tipo, passcode: passcode};
 					$.post(
 						"https://www.rinonline.com/fpass/nuova_tessera.php",
 						oggetto,
