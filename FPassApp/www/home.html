@@ -21,19 +21,19 @@
     <link rel="stylesheet" type="text/css" href="css/home.css" />
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/home.js"></script>
+	<script type="text/javascript" src="js/jquery-barcode.min.js"></script>
+	    <script type="text/javascript" src="js/home.js"></script>
 	<script src="js/fontawesome-all.min.js"></script>
     <title>F-Pass Home</title>
 </head>
 <body id="body" onload="app.initialize();">
+	<div id="target"></div>
 <div id="footer">
-	<div id="fpass">
-		<i class="fas fa-qrcode"></i><br>
-		Il mio F-Pass
-	</div>
-	<div id="tessere">
-		<i class="fas fa-credit-card"></i><br>
-		Le mie tessere
+	<div id="fpass" class="active">
+		<i class="fas fa-qrcode fa-2x"></i>
+	</div><!--
+ --><div id="tessere">
+		<i class="fas fa-credit-card fa-2x"></i>
 	</div>
 </div>
 </body>
