@@ -15,7 +15,23 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        document.getElementById("body").style.visibility = "visible";
     },
     // Update DOM on a Received Event
 };
+
+function validate() {
+	var mail = document.getElementById('mail').value;
+	var password = document.getElementById('password').value;
+	$("#wrapper").css("visibility","visible");
+	var oggetto ={ mail: mail, password: password};
+	$.post(
+		"https://www.rinonline.com/fpass/legge_anag.php",
+		oggetto,
+		function (data){
+			$("#wrapper").css("visibility","hidden");
+			console.log(data);
+			//window.location = "home.html"
+		}
+	);
+	return false;
+}

@@ -36,16 +36,10 @@ h1 {
     font-size: 40px;
 }
 
-#logo {
-	width: 90%;
-	display: block;
-	margin: 0 auto;
-}
-
 form {
     height: 50%;
     width: 90%;
-    bottom: 5%;
+    top: 15%;
 	left: 5%;
     position: absolute;
 	text-align: center;
@@ -93,4 +87,21 @@ button:focus, button:active {
     outline: none;
     box-shadow: none;
     top: 8px;
+}
+
+#wrapper {
+    background-color: #0000006b;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+	visibility: hidden;
+}
+
+.spinner {
+    display: block;
+    color: white;
+    position: absolute;
+    top: 46%;
+    left: 46%;
 }

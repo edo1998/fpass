@@ -15,7 +15,6 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        document.getElementById("body").style.visibility = "visible";
     },
     // Update DOM on a Received Event
 };
@@ -34,19 +33,26 @@ function validate() {
 	var nome = document.getElementById('nome').value;
 	var cognome = document.getElementById('cognome').value;
 	var mail = document.getElementById('mail').value;
+	var conf_mail = document.getElementById('conf_mail').value;
 	var password = document.getElementById('password').value;
 	var conf_password = document.getElementById('conf_password').value;
 	var check_mail = ValidateEmail(mail);
-	if(check_mail && (password == conf_password && password != "") && nome != "" && cognome != ""){
+	if((check_mail && mail == conf_mail) && (password == conf_password && password != "") && nome != "" && cognome != ""){
+		$("#wrapper").css("visibility","visible");
 		var oggetto ={ nome: nome, cognome: cognome,  mail: mail, password: password};
 		$.post(
 			"https://www.rinonline.com/fpass/nuovo_anag.php",
-			oggetto
+			oggetto,
+			function (){
+				$("#wrapper").css("visibility","hidden");
+				window.location = "home.html"
+			}
 		);
 		return false;
 	}else{
-		if (!check_mail){
+		if (!check_mail || mail != conf_mail){
 			document.getElementById("mail").className += "error";
+			document.getElementById("conf_mail").className += "error";
 		}
 		if (password != conf_password || password == ""){
 			document.getElementById("password").className += "error";

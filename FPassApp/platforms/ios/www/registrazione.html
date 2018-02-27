@@ -26,11 +26,12 @@
     <title>F-Pass Registrazione</title>
 </head>
 <body id="body" onload="app.initialize();">
-	<img id="logo" src="img/logo.png">
+	<div id="wrapper"><i class="fas fa-spinner fa-spin spinner fa-3x"></i></div>
     <form id="form_registrazione" action="" onSubmit="return validate()">
 		<input type="text" name="nome" id="nome" placeholder="Nome">
 		<input type="text" name="cognome" id="cognome" placeholder="Cognome">
 		<input type="text" name="mail" id="mail" placeholder="Indirizzo e-mail">
+		<input type="text" name="conf_mail" id="conf_mail" placeholder="Conferma e-mail">
 		<input type="password" name="password" id="password" placeholder="Password">
 		<input type="password" name="conf_password" id="conf_password" placeholder="Conferma password">
 		<button type="submit"><i class="fas fa-sign-in-alt"></i> Registrati</button>
