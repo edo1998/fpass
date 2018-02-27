@@ -35,7 +35,7 @@
 		</div>
 	</div>
     <form id="form_registrazione" action="" onSubmit="return false;">
-		<select>
+		<select name="id_locale" id="id_locale">
 			<option value="" selected disabled>Scegli la tessera</option>
 			<option value="1">Brico</option>
 		</select>
@@ -43,7 +43,7 @@
 		<input type="hidden" name="codice" id="codice">
 		<input type="hidden" name="passcode" id="passcode">
 		<button id="scan">Scannerizza</button>
-		<button type="submit"><i class="fas fa-sign-in-alt"></i> Aggiungi</button>
+		<button type="submit" id="aggiungi"><i class="fas fa-sign-in-alt"></i> Aggiungi</button>
 	</form>
 </body>
 </html>

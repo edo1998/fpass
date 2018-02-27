@@ -15,6 +15,10 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+		var tessere = JSON.parse(localStorage.tessere);
+		for (i = 0; i < tessere.length; i++) {
+    		$("#tessere").append('<div class="list_element"><div class="icon"><i class="fas fa-credit-card fa-2x"></i></div><!----><div class="locale"><a href="tessera.html?codice='+tessere[i].codice+'">'+tessere[i].id_locale+'</a></div></div>');
+		}
 		$("#aggiungi").click(
 			function(){
 				window.location = "nuova_tessera.html";

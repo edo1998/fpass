@@ -52,6 +52,7 @@ function validate() {
 					localStorage.mail = mail;
 					localStorage.passcode = response.passcode;
 					localStorage.keep = 1;
+					localStorage.tessere = JSON.stringify([]);
 					window.location = "home.html"
 				}else{
 					alert('Si è verificato un errore');
