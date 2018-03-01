@@ -8,7 +8,7 @@ $mydb = new DB();
  
 $result = $mydb->clear_query();
 
-$mydb->comando = "SELECT id, descrizione FROM locali";
+$mydb->comando = "SELECT id, descrizione FROM locali order by descrizione";
 
 $rows = $mydb -> query();
 
