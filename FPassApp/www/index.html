@@ -18,9 +18,12 @@
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
 	<script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+	<script type="text/javascript" src="js/jquery-mobile-1.4.5.min.js"></script>
 	<script src="js/fontawesome-all.min.js"></script>
 	<title>F-Pass</title>
 </head>
@@ -29,14 +32,12 @@
 	<h1>F-Pass</h1>
 	<img id="logo" src="img/logo.png">
 	<h3>Tutte le tue tessere sul tuo telefono</h3>
-    <form id="form_scelta" action="javascript:void(0);"><!--
-	 --><button onclick="window.location='registrazione.html';" type="submit" name="registrati" id="registrati" value="Registrati">
-			<i class="fas fa-user-plus"></i> Registrati
-		</button><!--
-	 --><button onclick="window.location='login.html';" type="submit" name="accedi" id="accedi" value="Accedi">
-	 		<i class="fas fa-sign-in-alt"></i> Accedi
-		</button>
-    </form>
+    <a href="registrazione.html" id="registrati" data-inline="true" data-role="button">
+		<i class="fas fa-user-plus"></i> Registrati
+	</a><!--
+ --><a href="login.html" id="accedi" data-inline="true" data-role="button">
+	 	<i class="fas fa-sign-in-alt"></i> Accedi
+	</a>
 </body>
 
 </html>
