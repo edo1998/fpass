@@ -39,10 +39,16 @@ var app = {
 		var parameters = parseURLParams(url);
 		var tipo = parameters.tipo[0];
 		var codice = parameters.codice[0];
-		if (tipo != "QR_CODE"){
+		if (tipo == "CODABAR" || tipo == "CODE_39" || tipo == "CODE_93" || tipo == "CODE_128" || tipo == "EAN_8" || tipo == "EAN_13" || tipo == "MSI" || tipo == "DATA_MATRIX"){
 			tipo = tipo.toLowerCase().replace("_","");
 			$("#code").barcode(codice,tipo);
-		}else{
+		}else if(tipo == "ITF"){
+			JsBarcode("#code", codice, {
+  				format: tipo
+			});
+		}else if(tipo == "UPC_A" || tipo == "UPC_E"){
+			JsBarcode("#code2", codice, {format: "UPC"});
+		}else if (tipo == "QR_CODE"){
 			$("#code").qrcode(codice);
 		}
 		$("#indietro").click(
