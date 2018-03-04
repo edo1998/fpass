@@ -7,24 +7,17 @@ html{
 	height: 100%;
 }
 
-body {
+.body {
     font-family: Verdana, sans-serif;
     font-size:12px;
     height:100%;
     margin:0px;Verdana
     padding:0px;
     width:100%;
+	background-color: white !important;
 }
 
-form {
-    height: 50px;
-    width: 90%;
-    bottom: 10%;
-	left: 5%;
-    position: absolute;
-}
-
-#registrati,  #accedi {
+#registrati,  #accedi, button {
     width: 45%;
     height: 50px;
     margin: 0 2.5%;
@@ -32,13 +25,11 @@ form {
 	font-size: 17px;
 	letter-spacing: 0.5px;
 	font-weight: bold;
-	color: #860000;
+	color: #860000 !important;
 }
 
-#accedi:focus, #accedi:active, #registrati:focus, #registrati:active {
+#accedi:focus, #accedi:active, #registrati:focus, #registrati:active, button:focus, button:active {
     outline: none;
-    box-shadow: none;
-    top: 8px;
 }
 
 h1 {
@@ -48,8 +39,8 @@ h1 {
     font-size: 40px;
 }
 
-#logo {
-	width: 90%;
+.logo {
+	width: 65%;
 	display: block;
 	margin: 0 auto;
 }

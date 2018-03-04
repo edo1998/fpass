@@ -18,3 +18,8 @@ var app = {
     },
     // Update DOM on a Received Event
 };
+
+keep = localStorage.keep;
+if (keep == "1"){
+	window.location = "home.html";
+}
