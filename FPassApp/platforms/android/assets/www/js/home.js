@@ -26,6 +26,7 @@ var app = {
 			function (event){
 				localStorage.codice = $(event.target).attr("codice");
 				localStorage.tipo = $(event.target).attr("tipo");
+				localStorage.descrizione = $(event.target).html();
 				generateBarcode();
 			}
 		);
@@ -35,6 +36,23 @@ var app = {
 			function() {
 				localStorage.keep = 0;
 				window.location = "index.html";
+			}
+		);
+		$("#elimina").click(
+			function (){
+				$("#wrapper_tessera").css("visibility","visible");
+				$.post(
+					"https://www.rinonline.com/fpass/elimina_tessera.php",
+					{passcode: localStorage.passcode, id_locale: localStorage.id_locale},
+					function (data){
+						var tessere = JSON.parse(localStorage.tessere);
+						tessere.splice(tessere.indexOf({id_locale = localStorage.id_locale, codice: localStorage.codice, descrizione: localStorage.descrizione, tipo: localStorage.tipo}),1);
+						localStorage.tessere = JSON.stringify(tessere);
+						$("#wrapper_tessera").css("visibility","hidden");
+						alert(data);
+						//window.location = "home.html";
+					}
+				);
 			}
 		);
 		$("#aggiungi").click(
@@ -69,7 +87,7 @@ var app = {
 							var response = JSON.parse(data);
 							if (response.errore == 0){
 								var tessere = JSON.parse(localStorage.tessere);
-								var oggetto ={id_locale: id_locale, descrizione: locale, codice: codice,  tipo: tipo, passcode: passcode};
+								var oggetto ={id_locale: id_locale, descrizione: locale, codice: codice,  tipo: tipo};
 								tessere.push(oggetto)
 								localStorage.tessere = JSON.stringify(tessere);
 								$("#wrapper").css("visibility","hidden");
