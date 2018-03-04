@@ -19,7 +19,7 @@ if ($rows == 0) {
         echo '<select name="id_locale" id="id_locale">';
 		echo '<option value="" selected disabled>Scegli la tessera</option>';
 
-        for ($x = 0; $x <= count($rows); $x++) {
+        for ($x = 0; $x < count($rows); $x++) {
             echo "<option value='{$rows[$x][id]}'>{$rows[$x][descrizione]}</option>";
         }
 
