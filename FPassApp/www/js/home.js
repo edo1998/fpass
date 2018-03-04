@@ -31,16 +31,25 @@ var app = {
 		);
 		$("#tessere").listview("refresh");
 		$("#passcode").val(localStorage.passcode);
+		$("#logout").click(
+			function() {
+				localStorage.keep = 0;
+				window.location = "index.html";
+			}
+		);
 		$("#aggiungi").click(
 			function() {
-				$("#wrapper").css("visibility","visible");
-				$.post(
-					"https://www.rinonline.com/fpass/elenco_locali.php",
-					function (data){
-						$("#wrapper").css("visibility","hidden");
-						$("#form_tessera").prepend(data);						
-					}
-				);
+				if ($("#id_locale").length == 0){
+					$("#wrapper").css("visibility","visible");
+					$.post(
+						"https://www.rinonline.com/fpass/elenco_locali.php",
+						function (data){
+							$("#wrapper").css("visibility","hidden");
+							$("#form_tessera").prepend(data);
+							$("#id_locale").selectmenu();
+						}
+					);
+				}
 			}
 		);
 		$("#aggiungi_form").click(

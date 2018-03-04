@@ -57,3 +57,8 @@ a {
 #codice_scan {
     text-align: center;
 }
+
+#logout {
+    float: left;
+	color: #860000 !important;
+}
