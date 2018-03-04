@@ -20,16 +20,13 @@ $mydb->comando = "SELECT Cognome,Nome,PassCode FROM anag WHERE Mail = ? and Pass
 $rows = $mydb -> query();
 
 if ($rows == 0) {
-        $dati['cognome'] = "";
-        $dati['nome'] = "";
-        $dati['passcode'] = "";
-        $dati['errore'] = 1;
+        $dati['errore1'] = 1;
         echo json_encode($dati);
     } else {
         $dati['cognome'] = $rows[0]['Cognome'];
         $dati['nome'] = $rows[0]['Nome'];
         $dati['passcode'] = $rows[0]['PassCode'];
-        $dati['errore'] = 0;
+        $dati['errore1'] = 0;
         
         $result = $mydb->clear_query();
 
@@ -41,7 +38,12 @@ if ($rows == 0) {
     
         $rows = $mydb -> query();
         
-        $dati['tessere'] = json_encode($rows);
+        if ($rows == 0) {
+            $dati['errore2'] = 1;
+            } else {
+                $dati['tessere'] = json_encode($rows);
+                $dati['errore2'] = 0;
+            }
         
         echo json_encode($dati);
     }
