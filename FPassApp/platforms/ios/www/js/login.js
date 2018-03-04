@@ -35,7 +35,7 @@ function validateLogin() {
 				localStorage.cognome = response.cognome;
 				localStorage.mail = mail;
 				localStorage.passcode = response.passcode;
-				localStorage.tessere = JSON.stringify([]);
+				localStorage.tessere = response.tessere;
 				localStorage.keep = 1;
 				window.location = "home.html"
 			}else{
