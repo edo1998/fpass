@@ -66,14 +66,14 @@ var app = {
 						"https://www.rinonline.com/fpass/nuova_tessera.php",
 						oggetto,
 						function (data){
-							$("#wrapper").css("visibility","hidden");
 							var response = JSON.parse(data);
 							if (response.errore == 0){
 								var tessere = JSON.parse(localStorage.tessere);
 								var oggetto ={id_locale: id_locale, descrizione: locale, codice: codice,  tipo: tipo, passcode: passcode};
 								tessere.push(oggetto)
 								localStorage.tessere = JSON.stringify(tessere);
-								window.location = "home.html"
+								$("#wrapper").css("visibility","hidden");
+								window.location = "home.html";
 							}else{
 								alert('Si è verificato un errore');
 							}
