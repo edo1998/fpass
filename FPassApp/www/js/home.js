@@ -17,7 +17,7 @@ var app = {
     onDeviceReady: function() {
 		var tessere = JSON.parse(localStorage.tessere);
 		for (i = 0; i < tessere.length; i++) {
-    		$("#tessere").append('<li><a href="#tessera" class="tessera" data-transition="slide" codice="'+tessere[i].codice+'" tipo="'+tessere[i].tipo+'">'+tessere[i].descrizione+'</a></li>');
+    		$("#tessere").append('<li><a href="#tessera" class="tessera" data-transition="slide" id_locale="'+tessere[i].id_locale+'" codice="'+tessere[i].codice+'" tipo="'+tessere[i].tipo+'">'+tessere[i].descrizione+'</a></li>');
 		}
 		if (tessere.length == 0){
 			$("#tessere").append('<li>Non hai ancora inserito una tessera</li>');
@@ -26,6 +26,7 @@ var app = {
 			function (event){
 				localStorage.codice = $(event.target).attr("codice");
 				localStorage.tipo = $(event.target).attr("tipo");
+				localStorage.id_locale = $(event.target).attr("id_locale");
 				localStorage.descrizione = $(event.target).html();
 				generateBarcode();
 			}
@@ -46,7 +47,7 @@ var app = {
 					{passcode: localStorage.passcode, id_locale: localStorage.id_locale},
 					function (data){
 						var tessere = JSON.parse(localStorage.tessere);
-						tessere.splice(tessere.indexOf({id_locale = localStorage.id_locale, codice: localStorage.codice, descrizione: localStorage.descrizione, tipo: localStorage.tipo}),1);
+						tessere.splice(tessere.indexOf({id_locale:  localStorage.id_locale, codice: localStorage.codice, descrizione: localStorage.descrizione, tipo: localStorage.tipo}),1);
 						localStorage.tessere = JSON.stringify(tessere);
 						$("#wrapper_tessera").css("visibility","hidden");
 						alert(data);
