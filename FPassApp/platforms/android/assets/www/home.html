@@ -19,21 +19,56 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/home.css" />
+	    <link rel="stylesheet" type="text/css" href="css/tessera.css" />
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
 	<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
 	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="js/jquery-mobile-1.4.5.min.js"></script>
 	<script type="text/javascript" src="js/jquery-barcode.min.js"></script>
 	<script type="text/javascript" src="js/jquery-qrcode.min.js"></script>
 	<script type="text/javascript" src="js/home.js"></script>
+	<script type="text/javascript" src="js/tessera.js"></script>
 	<script src="js/fontawesome-all.min.js"></script>
     <title>F-Pass Home</title>
 </head>
 <body id="body" onload="app.initialize();">
-	<div id="navbar">
-		<div id="aggiungi">
-			<i class="fas fa-plus fa-2x"></i>
+	<div id="home" class="body" data-role="page">
+		<div class="navbar">
+			<a href="#nuova_tessera" data-transition="slide" id="aggiungi">
+				<i class="fas fa-plus fa-2x"></i>
+			</a>
 		</div>
+		<ul data-role="listview" id="tessere">
+		</ul>
 	</div>
-	<div id="tessere">
+	<div id="tessera" class="body" data-role="page">
+		<div class="navbar">
+			<a href="#home" class="indietro" data-rel="back" data-transition="slide" data-reverse="true">
+				<i class="fas fa-chevron-left fa-2x"></i>
+			</a>
+		</div>
+		<div id="code"></div>
+		<canvas id="code2"></canvas>
+	</div>
+	<div class="body" data-role="page" id="nuova_tessera">
+		<div id="wrapper"><i class="fas fa-spinner fa-spin spinner fa-3x"></i></div>
+		<div class="navbar">
+			<a href="#home" class="indietro" data-rel="back" data-transition="slide" data-reverse="true">
+				<i class="fas fa-chevron-left fa-2x"></i>
+			</a>
+		</div>
+	    <form id="form_tessera" action="" onSubmit="return false;">
+			<select name="id_locale" id="id_locale">
+				<option value="" selected disabled>Scegli la tessera</option>
+				<option value="1">Brico</option>
+			</select>
+			<input type="hidden" name="tipo" id="tipo">
+			<input type="hidden" name="codice" id="codice">
+			<input type="hidden" name="passcode" id="passcode">
+			<button id="scan">Scannerizza</button>
+			<h3 id="codice_scan">Nessuna tessera ancora scannerizzata<h3>
+			<button type="submit" id="aggiungi_form"><i class="fas fa-sign-in-alt"></i> Aggiungi</button>
+		</form>
 	</div>
 </body>
 </html>
