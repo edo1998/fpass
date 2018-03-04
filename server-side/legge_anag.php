@@ -30,6 +30,19 @@ if ($rows == 0) {
         $dati['nome'] = $rows[0]['Nome'];
         $dati['passcode'] = $rows[0]['PassCode'];
         $dati['errore'] = 0;
+        
+        $result = $mydb->clear_query();
+
+        $mydb->item_type[0] = "s";
+
+        $mydb->item_value[0] = $_POST["passcode"];
+
+        $mydb->comando = "SELECT codice, tipo, descrizione FROM codici, locali WHERE PassCode = ? and codici.id_locale = locali.id";
+    
+        $rows = $mydb -> query();
+        
+        $dati['tessere'] = json_encode($rows);
+        
         echo json_encode($dati);
     }
     
