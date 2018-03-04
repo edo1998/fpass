@@ -17,7 +17,7 @@ var app = {
     onDeviceReady: function() {
 		var tessere = JSON.parse(localStorage.tessere);
 		for (i = 0; i < tessere.length; i++) {
-    		$("#tessere").append('<li><a href="#tessera" class="tessera" data-transition="slide" codice="'+tessere[i].codice+'" tipo="'+tessere[i].tipo+'">'+tessere[i].locale+'</a></li>');
+    		$("#tessere").append('<li><a href="#tessera" class="tessera" data-transition="slide" codice="'+tessere[i].codice+'" tipo="'+tessere[i].tipo+'">'+tessere[i].descrizione+'</a></li>');
 		}
 		if (tessere.length == 0){
 			$("#tessere").append('<li>Non hai ancora inserito una tessera</li>');
@@ -70,6 +70,7 @@ var app = {
 							var response = JSON.parse(data);
 							if (response.errore == 0){
 								var tessere = JSON.parse(localStorage.tessere);
+								var oggetto ={id_locale: id_locale, descrizione: locale, codice: codice,  tipo: tipo, passcode: passcode};
 								tessere.push(oggetto)
 								localStorage.tessere = JSON.stringify(tessere);
 								window.location = "home.html"

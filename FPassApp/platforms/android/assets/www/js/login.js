@@ -30,12 +30,16 @@ function validateLogin() {
 		function (data){
 			$("#wrapper_login").css("visibility","hidden");
 			var response = JSON.parse(data);
-			if (response.errore == 0){
+			if (response.errore1 == 0){
 				localStorage.nome = response.nome;
 				localStorage.cognome = response.cognome;
 				localStorage.mail = mail;
 				localStorage.passcode = response.passcode;
-				localStorage.tessere = response.tessere;
+				if (response.errore2 == 0){
+					localStorage.tessere = response.tessere;
+				}else{
+					localStorage.tessere = JSON.stringify([]);
+				}
 				localStorage.keep = 1;
 				window.location = "home.html"
 			}else{
