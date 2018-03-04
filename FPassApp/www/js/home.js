@@ -33,7 +33,14 @@ var app = {
 		$("#passcode").val(localStorage.passcode);
 		$("#aggiungi").click(
 			function() {
-				
+				$("#wrapper").css("visibility","visible");
+				$.post(
+					"https://www.rinonline.com/fpass/elenco_locali.php",
+					function (data){
+						$("#wrapper").css("visibility","hidden");
+						alert(data);						
+					}
+				);
 			}
 		);
 		$("#aggiungi_form").click(
