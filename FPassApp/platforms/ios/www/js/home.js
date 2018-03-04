@@ -38,7 +38,7 @@ var app = {
 					"https://www.rinonline.com/fpass/elenco_locali.php",
 					function (data){
 						$("#wrapper").css("visibility","hidden");
-						alert(data);						
+						$("#form_tessera").prepend(data);						
 					}
 				);
 			}
