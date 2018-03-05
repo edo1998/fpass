@@ -50,8 +50,7 @@ var app = {
 						tessere.splice(tessere.indexOf({id_locale:  localStorage.id_locale, codice: localStorage.codice, descrizione: localStorage.descrizione, tipo: localStorage.tipo}),1);
 						localStorage.tessere = JSON.stringify(tessere);
 						$("#wrapper_tessera").css("visibility","hidden");
-						alert(data);
-						//window.location = "home.html";
+						window.location = "home.html";
 					}
 				);
 			}
