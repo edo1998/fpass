@@ -83,3 +83,9 @@ a {
 #elimina {
     color: #860000;
 }
+
+#fpass {
+    text-align: center;
+    top: 20%;
+    position: relative;
+}

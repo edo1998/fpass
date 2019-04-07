@@ -15,12 +15,13 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+		$("#fpass").qrcode(localStorage.passcode);
 		var tessere = JSON.parse(localStorage.tessere);
 		for (i = 0; i < tessere.length; i++) {
     		$("#tessere").append('<li><a href="#tessera" class="tessera" data-transition="slide" id_locale="'+tessere[i].id_locale+'" codice="'+tessere[i].codice+'" tipo="'+tessere[i].tipo+'">'+tessere[i].descrizione+'</a></li>');
 		}
 		if (tessere.length == 0){
-			$("#tessere").append('<li>Non hai ancora inserito una tessera</li>');
+			//$("#tessere").append('<li>Non hai ancora inserito una tessera</li>');
 		}
 		$(".tessera").click(
 			function (event){
