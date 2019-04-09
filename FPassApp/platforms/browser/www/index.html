@@ -43,6 +43,11 @@
 		</a>
 	</div>
 	<div data-role="page" id="registrazione" class="body">
+		<div class="navbar">
+			<a href="#" data-transition="slide" data-rel="back" class="back">
+				<i class="fas fa-chevron-left fa-2x"></i>
+			</a>
+		</div>
 		<div id="wrapper"><i class="fas fa-spinner fa-spin spinner fa-3x"></i></div>
 	    <form id="form_registrazione" action="" onSubmit="return validate()">
 			<input type="text" name="nome" id="nome" placeholder="Nome">
@@ -56,7 +61,11 @@
 	</div>
 	<div id="login" class="body" data-role="page">
 		<div id="wrapper_login"><i class="fas fa-spinner fa-spin spinner fa-3x"></i></div>
-		<img class="logo" src="img/logo.jpg">
+		<div class="navbar">
+			<a href="#" data-transition="slide" data-rel="back" class="back">
+				<i class="fas fa-chevron-left fa-2x"></i>
+			</a>
+		</div>
 	    <form id="form_login" action="" onSubmit="return validateLogin()">
 			<input type="text" name="mail" id="mail_login" placeholder="Indirizzo e-mail">
 			<input type="password" name="password" id="password_login" placeholder="Password">
