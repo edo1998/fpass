@@ -19,6 +19,37 @@ var app = {
     // Update DOM on a Received Event
 };
 
+function validateLogin() {
+	var mail = document.getElementById('mail_login').value;
+	var password = document.getElementById('password_login').value;
+	$("#wrapper_login").css("visibility","visible");
+	var oggetto ={ mail: mail, password: password};
+	$.post(
+		"https://www.rinonline.com/fpass/legge_anag.php",
+		oggetto,
+		function (data){
+			$("#wrapper_login").css("visibility","hidden");
+			var response = JSON.parse(data);
+			if (response.errore1 == 0){
+				localStorage.nome = response.nome;
+				localStorage.cognome = response.cognome;
+				localStorage.mail = mail;
+				localStorage.passcode = response.passcode;
+				if (response.errore2 == 0){
+					localStorage.tessere = response.tessere;
+				}else{
+					localStorage.tessere = JSON.stringify([]);
+				}
+				localStorage.keep = 1;
+				window.location = "home.html"
+			}else{
+				alert('E-mail o password scorretti');
+			}
+		}
+	);
+	return false;
+}
+
 keep = localStorage.keep;
 if (keep == "1"){
 	window.location = "home.html";
