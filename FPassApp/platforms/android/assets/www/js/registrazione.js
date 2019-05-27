@@ -27,6 +27,10 @@ var app = {
     // Update DOM on a Received Event
 };
 
+function isValidDate(d) {
+  	return moment(d, 'DD/MM/YY',true).isValid()
+}
+
 function ValidateEmail(mail)
 {
  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
@@ -44,10 +48,12 @@ function validate() {
 	var conf_mail = document.getElementById('conf_mail').value;
 	var password = document.getElementById('password').value;
 	var conf_password = document.getElementById('conf_password').value;
+	var data_nascita = document.getElementById('data_nascita').value;
+	var comune = document.getElementById('comune').value;
 	var check_mail = ValidateEmail(mail);
-	if((check_mail && mail == conf_mail) && (password == conf_password && password != "") && nome != "" && cognome != ""){
+	if((check_mail && mail == conf_mail) && (password == conf_password && password != "") && nome != "" && cognome != "" && comune != "" && isValidDate(data_nascita)){
 		$("#wrapper").css("visibility","visible");
-		var oggetto ={ nome: nome, cognome: cognome,  mail: mail, password: password};
+		var oggetto ={ nome: nome, cognome: cognome,  mail: mail, password: password, comune: comune, data_nascita: data_nascita};
 		$.post(
 			"https://www.rinonline.com/fpass/nuovo_anag.php",
 			oggetto,
@@ -69,19 +75,33 @@ function validate() {
 		);
 		return false;
 	}else{
+		$("#mail").parent().removeClass("error");
+		$("#conf_mail").parent().removeClass("error");
+		$("#password").parent().removeClass("error");
+		$("#conf_password").parent().removeClass("error");
+		$("#nome").parent().removeClass("error");
+		$("#cognome").parent().removeClass("error");
+		$("#comune").parent().removeClass("error");
+		$("#data_nascita").parent().removeClass("error");
 		if (!check_mail || mail != conf_mail){
-			document.getElementById("mail").className += "error";
-			document.getElementById("conf_mail").className += "error";
+			$("#mail").parent().addClass("error");
+			$("#conf_mail").parent().addClass("error");
 		}
 		if (password != conf_password || password == ""){
-			document.getElementById("password").className += "error";
-			document.getElementById("conf_password").className += "error";
+			$("#password").parent().addClass("error");
+			$("#conf_password").parent().addClass("error");
 		}
 		if (nome == ""){
-			document.getElementById("nome").className += "error";
+			$("#nome").parent().addClass("error");
 		}
 		if (cognome == ""){
-			document.getElementById("cognome").className += "error";
+			$("#cognome").parent().addClass("error");
+		}
+		if (comune == ""){
+			$("#comune").parent().addClass("error");
+		}
+		if (!isValidDate(data_nascita)){
+			$("#data_nascita").parent().addClass("error");
 		}
 		return false;
 	}

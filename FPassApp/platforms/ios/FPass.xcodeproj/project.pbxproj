@@ -49,6 +49,7 @@
 		E2B1D9C63655412A825B6E9A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9F06DD3F2F8429585F7548B /* CoreVideo.framework */; };
 		ABA279C416574D388FF8E876 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F64C725BB7FA4D439247A918 /* QuartzCore.framework */; };
 		8C202349E59B424683DC3925 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792A5475C560408C9A8C29A9 /* CoreImage.framework */; };
+		A96A9D791B214B0ABDC0C6AE /* CDVNavigationWhitelistPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = A9932B7260FA43CDB6CEF4DE /* CDVNavigationWhitelistPlugin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +141,8 @@
 		F9F06DD3F2F8429585F7548B /* CoreVideo.framework */ = {isa = PBXFileReference; name = "CoreVideo.framework"; path = "System/Library/Frameworks/CoreVideo.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		F64C725BB7FA4D439247A918 /* QuartzCore.framework */ = {isa = PBXFileReference; name = "QuartzCore.framework"; path = "System/Library/Frameworks/QuartzCore.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		792A5475C560408C9A8C29A9 /* CoreImage.framework */ = {isa = PBXFileReference; name = "CoreImage.framework"; path = "System/Library/Frameworks/CoreImage.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		A9932B7260FA43CDB6CEF4DE /* CDVNavigationWhitelistPlugin.m */ = {isa = PBXFileReference; name = "CDVNavigationWhitelistPlugin.m"; path = "cordova-plugin-whitelist/CDVNavigationWhitelistPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		B0CBC63957784BB395FAEFD9 /* CDVNavigationWhitelistPlugin.h */ = {isa = PBXFileReference; name = "CDVNavigationWhitelistPlugin.h"; path = "cordova-plugin-whitelist/CDVNavigationWhitelistPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +308,8 @@
 				5FA06EEFE7AF41E1A24DFD0A /* CDVBarcodeScanner.mm */,
 				3AE38F809369422A93B29B6C /* zxing-all-in-one.cpp */,
 				64FDFA8175DF431CAAFDE8AF /* zxing-all-in-one.h */,
+				A9932B7260FA43CDB6CEF4DE /* CDVNavigationWhitelistPlugin.m */,
+				B0CBC63957784BB395FAEFD9 /* CDVNavigationWhitelistPlugin.h */,
 			);
 			name = Plugins;
 			path = "FPass/Plugins";
@@ -439,6 +444,7 @@
 				AACB4E3D21CA417F98BEA816 /* CDVVibration.m in Sources */,
 				D56AC51DFAEE4D3C923F6FF9 /* CDVBarcodeScanner.mm in Resources */,
 				6518DB8E0F124E47BC994647 /* zxing-all-in-one.cpp in Resources */,
+				A96A9D791B214B0ABDC0C6AE /* CDVNavigationWhitelistPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

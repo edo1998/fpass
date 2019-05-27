@@ -5,8 +5,10 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-	<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
-	<!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+	<meta http-equiv="Content-Security-Policy"
+	             content="default-src *;
+	                      style-src * 'self' 'unsafe-inline' 'unsafe-eval';
+	                      script-src * 'self' 'unsafe-inline' 'unsafe-eval';">	<!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
     <!-- Good default declaration:
     * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
     * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
@@ -26,6 +28,7 @@
 	<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
 	<script type="text/javascript" src="js/jquery-mobile-1.4.5.min.js"></script>
 	<script src="js/fontawesome-all.min.js"></script>
+	<script src="js/moment.min.js"></script>
 	<title>F-Pass</title>
 </head>
 <body id="body" onload="app.initialize();">
@@ -51,6 +54,8 @@
 	    <form id="form_registrazione" action="" onSubmit="return validate()">
 			<input type="text" name="nome" id="nome" placeholder="Nome">
 			<input type="text" name="cognome" id="cognome" placeholder="Cognome">
+			<input type="text" name="comune" id="comune" placeholder="Comune di residenza">
+			<input type="text" name="data_nascita" id="data_nascita" placeholder="Data di nascita (GG/MM/AA)">
 			<input type="text" name="mail" id="mail" placeholder="Indirizzo e-mail">
 			<input type="text" name="conf_mail" id="conf_mail" placeholder="Conferma e-mail">
 			<input type="password" name="password" id="password" placeholder="Password">

@@ -4,7 +4,7 @@
 }
 
 .error{
-	background-color: #fd8b53;
+	border-color: red !important;
 }
 
 #button_registrati {

@@ -4,8 +4,14 @@
   "name": "FPass",
   "short_name": "FPass",
   "version": "com.fpass.app",
-  "description": "Hello World sample application that responds to the deviceready event.",
-  "author": "PhoneGap Team",
-  "icons": [],
+  "description": "Fpass, accedi ovunque.",
+  "author": "Pentasistemi S.a.s",
+  "icons": [
+    {
+      "src": "www/icon.png",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    }
+  ],
   "start_url": "index.html"
 }

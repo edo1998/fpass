@@ -46,6 +46,9 @@
     "phonegap-plugin-barcodescanner": {
       "CAMERA_USAGE_DESCRIPTION": " ",
       "PACKAGE_NAME": "com.fpass.app"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.fpass.app"
     }
   },
   "dependent_plugins": {

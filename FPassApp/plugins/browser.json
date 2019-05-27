@@ -15,6 +15,9 @@
     },
     "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "com.fpass.app"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.fpass.app"
     }
   },
   "dependent_plugins": {}
